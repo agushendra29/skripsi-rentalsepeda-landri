@@ -16,6 +16,10 @@
                     <div class="col-md-6">{{list.bicycle.name}}</div>
                 </div>
                 <div class="row" style="padding-top:5px">
+                    <div class="col-md-4">Alamat</div>
+                    <div class="col-md-6">{{list.address}}</div>
+                </div>
+                <div class="row" style="padding-top:5px">
                     <div class="col-md-4">Tanggal Transaksi</div>
                     <div class="col-md-6">{{currentDateTime(list.createdDate)}}</div>
                 </div>
@@ -31,7 +35,7 @@
                     <div class="col-md-4">Total rental</div>
                     <div class="col-md-6">{{currency(list.rentPrice)}}</div>
                 </div>
-                <div class="row" style="padding-top:5px">
+                <div class="row" style="padding-top:5px" v-if="list.deliveryServicePrice != 0">
                     <div class="col-md-4">Harga delivery</div>
                     <div class="col-md-6">{{currency(list.deliveryServicePrice)}}</div>
                 </div>

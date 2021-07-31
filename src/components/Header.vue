@@ -15,10 +15,9 @@
                 </b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-    
-                <b-nav-item @click="onLogout()" v-if="username != ''">
+                <b-nav-item v-if="username != ''">
                     <span v-if="username" style="color:white;margin-right:15px;">Welcome, {{username}}</span>
-                    <span class="cw" style="padding: 5px 10px;background: #00AF9C;">Logout</span>
+                    <span class="cw" @click="onLogout()" style="padding: 5px 10px;background: #00AF9C;">Logout</span>
                 </b-nav-item>
                 <b-nav-item to="/login" v-if="username == ''">
                     <span class="cw">Login</span>
@@ -54,7 +53,7 @@ export default {
         },
         onLogout() {
             if (this.username != '') {
-                localStorage.removeItem("username")
+                localStorage.clear();
             }
             this.getUsername();
             this.$router.push({ path: "/login" })

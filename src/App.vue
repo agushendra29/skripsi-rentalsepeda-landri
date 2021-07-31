@@ -1,9 +1,9 @@
 <template>
-    <div id="app">
-        <Header></Header>
-        <router-view/>
-        <Footer></Footer>
-    </div>
+<div id="app">
+    <Header></Header>
+    <router-view />
+    <Footer></Footer>
+</div>
 </template>
 
 <script>
@@ -13,6 +13,13 @@ import Footer from '@/components/Footer'
 export default {
     components: { Header, Footer },
     name: 'App',
+    computed: {
+        hide() {
+            if (this.$route.name == "Login") return false
+            else if (this.$route.name == "Register") return false
+            else return true
+        }
+    }
 }
 </script>
 
